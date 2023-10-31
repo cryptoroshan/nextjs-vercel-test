@@ -5,8 +5,6 @@ import clsx from 'clsx'
 import AddSaaSModal from "@/components/modal";
 
 const Header = () => {
-  // const { status, data: session } = useSession();
-
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef(null);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -17,24 +15,6 @@ const Header = () => {
       document.removeEventListener("click", handleClickOutside, true);
     };
   }, []);
-
-  // useEffect(() => {
-  //   if (session?.user) {
-  //     processWithGoogle(session?.user);
-  //   }
-  // }, [session?.user])
-
-  // const processWithGoogle = async (userInfo) => {
-  //   await fetch('/api/account/processWithGoogle', {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       user_info: userInfo
-  //     })
-  //   });
-  // }
 
   const handleClickOutside = (event) => {
     try {
@@ -59,24 +39,10 @@ const Header = () => {
             <div
               ref={wrapperRef}
               className="flex items-center gap-4 px-6 h-10 text-primary border border-primary text-sm font-bold rounded-md cursor-pointer"
-              // onClick={() => {
-              //   if (session === null)
-              //     signIn("google");
-              //   else
-              //     setShowDropdown(!showDropdown);
-              // }}
             >
-              {/* <Image
-                className={clsx(status === "authenticated" ? "hidden" : "")}
-                src="/assets/img/google.svg"
-                alt="Google Logo"
-                width={24}
-                height={24}
-                priority
-              />
               <p>
-                {status === "authenticated" ? session?.user.email : "Sign in with Google"}
-              </p> */}
+                Sign in with Google
+              </p>
             </div>
             <div
               className={clsx(
@@ -84,9 +50,6 @@ const Header = () => {
                 showDropdown === false ? "hidden" : ""
               )}
             >
-              <div className="px-4 py-3">
-                {/* <p>{session?.user.email}</p> */}
-              </div>
               <div
                 className="flex gap-2 items-center px-4 py-3 cursor-pointer hover:bg-gray-300"
                 onClick={() => setOpen(true)}
@@ -95,9 +58,6 @@ const Header = () => {
               </div>
               <div
                 className="flex gap-2 items-center px-4 py-3 cursor-pointer rounded-b-xl hover:bg-gray-300"
-                // onClick={() => {
-                //   signOut("google");
-                // }}
               >
                 <p>signOut</p>
               </div>
